@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hawor"
+version = "0.1.0"
+description = "HaWoR: World-Space Hand Motion Reconstruction from Egocentric Videos"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "license.txt" }
+authors = [
+    { name = "Jinglei Zhang" },
+    { name = "Jiankang Deng" },
+    { name = "Chao Ma" },
+    { name = "Rolandos Alexandros Potamias" },
+]
+
+# Intentionally no `dependencies` here: runtime requirements are managed
+# manually via `requirements.txt` (and the extra torch / DROID-SLAM /
+# Metric3D installation steps described in README.md). This keeps
+# `pip install -e .` from touching any already-installed packages.
+
+[project.urls]
+Homepage = "https://hawor-project.github.io/"
+Repository = "https://github.com/ThunderVVV/HaWoR"
+Paper = "https://arxiv.org/abs/2501.02973"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["hawor*", "lib*", "infiller*", "scripts*"]
+exclude = [
+    "hot3d*",
+    "thirdparty*",
+    "_DATA*",
+    "assets*",
+    "example*",
+    "weights*",
+    "datasets*",
+    "build*",
+    "dist*",
+    "tests*",
+]
+namespaces = true
