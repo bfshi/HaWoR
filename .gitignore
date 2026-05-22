@@ -36,7 +36,6 @@ logs*
 /datasets/
 /eval_log*/
 *.pth
-*.pkl
 /dataset*/
 /eval*/
 /thirdparty/aitviewer
