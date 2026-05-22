@@ -42,10 +42,14 @@ exclude = [
 ]
 namespaces = true
 
-# Ship the MANO model files alongside the `_DATA` package so callers that
-# `chdir` into the installed package root can resolve the relative
-# `_DATA/data/mano/MANO_RIGHT.pkl` / `_DATA/data_left/mano_left/MANO_LEFT.pkl`
-# paths used throughout `hawor.utils.process` and `infiller.hand_utils.process`.
+# Ship the MANO model files + mean-pose npz alongside the `_DATA` package
+# so callers that `chdir` into the installed package root can resolve the
+# relative paths used by `hawor.utils.process`,
+# `infiller.hand_utils.process` and `lib.models.modules` -- namely
+# `_DATA/data/mano_mean_params.npz`,
+# `_DATA/data/mano/MANO_RIGHT.pkl` and
+# `_DATA/data_left/mano_left/MANO_LEFT.pkl`.
 [tool.setuptools.package-data]
+"_DATA.data" = ["*.npz"]
 "_DATA.data.mano" = ["*.pkl"]
 "_DATA.data_left.mano_left" = ["*.pkl"]
